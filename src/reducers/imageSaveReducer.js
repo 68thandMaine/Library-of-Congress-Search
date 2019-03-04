@@ -5,7 +5,8 @@ const imageSaveReducer = (state = {}, action) => {
     case types.SAVE_IMAGE:
     return Object.assign({}, state, {
       [action.id]: {
-          url: action.url
+          url: action.url,
+          title: action.title
       }
     });
     default:

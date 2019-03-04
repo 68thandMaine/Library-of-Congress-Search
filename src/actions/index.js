@@ -11,10 +11,11 @@ export const searchComplete = (query, results) => ({
   results
 });
 
-export const saveImage = (url, id) => ({
+export const saveImage = (id, url, title) => ({
   type: types.SAVE_IMAGE,
+  id,
   url,
-  id
+  title
 });
 
 export function fetchLocSearch(query) {
@@ -26,10 +27,13 @@ export function fetchLocSearch(query) {
       error => console.log('An error occured', error)
     )
       .then(function(json) {
-        const urls = json.results.map((result) => {
-          return 'https:' + result.image.full;
+        const infos = json.results.map((result) => {
+          return {
+            title: result.title,
+            url: 'https:' + result.image.full
+          };
         });
-        dispatch(searchComplete(query, urls));
+        dispatch(searchComplete(query, infos));
       });
   };
 }

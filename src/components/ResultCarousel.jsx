@@ -11,18 +11,17 @@ const ResultCarousel = ({dispatch, resultList}) => {
     const value = (resultList ?
       (
         <Carousel autoPlay={true}>
-        {resultList.map((url, index) =>
+        {resultList.map((info, index) =>
           <div key={index} onClick={e => {
               e.preventDefault();
-              console.log('image click');
-              dispatch(saveImage(url, v4()));
+              dispatch(saveImage(v4(), info.url, info.title));
             }}>
-            <img src={url} />
+            <img src={info.url} />
+            <p>{info.title}</p>
           </div>
         )}
       </Carousel>
     ) : null);
-      console.log('carousel', value);
       return value;
 };
 
