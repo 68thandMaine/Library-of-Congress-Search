@@ -1,4 +1,3 @@
-// import v4 from 'uuid/v4';
 import * as types from '../constants/ActionTypes';
 
 export const searchSubmit = (query) => ({
@@ -24,7 +23,6 @@ export function fetchLocSearch(query) {
         const urls = json.results.map((result) => {
           return 'https:' + result.image.full;
         });
-        console.log('urls', urls);
         dispatch(searchComplete(query, urls));
       });
   };
