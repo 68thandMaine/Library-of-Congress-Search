@@ -3,19 +3,19 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import './ResultCarousel.css';
 
 const ResultCarousel = ({resultList}) => {
-  return(
-    (resultList ?
-      (<Carousel>
+    const value = (resultList ?
+      (
+        <Carousel autoPlay={true}>
         {resultList.map((url, index) =>
-            <div key={index}>
-              <img src={url} />
-              <p className='legend'>Legend 1</p>
-            </div>
+          <img  src={url} key={index}/>
         )}
-      </Carousel>) : null)
-  );
+      </Carousel>
+    ) : null);
+      console.log('carousel', value);
+      return value;
 };
 
 

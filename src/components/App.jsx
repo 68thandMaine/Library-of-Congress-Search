@@ -2,6 +2,7 @@ import React from 'react';
 import Search from './Search';
 import styles from './App.css';
 import Carousel from './ResultCarousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 function App() {
   return (
