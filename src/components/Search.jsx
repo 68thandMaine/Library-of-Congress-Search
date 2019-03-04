@@ -1,5 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './Search.css';
+import {fetchLocSearch} from '../actions';
+import { connect } from 'react-redux';
 
 class Search extends React.Component {
   constructor(props) {
@@ -16,6 +19,7 @@ class Search extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     console.log('submit', this.state.value);
+    this.props.dispatch(fetchLocSearch(this.state.value));
   }
 
   render() {
@@ -29,4 +33,8 @@ class Search extends React.Component {
   }
 }
 
-export default Search;
+Search.propTypes = {
+  dispatch: PropTypes.func
+};
+
+export default connect()(Search);
