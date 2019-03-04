@@ -18,6 +18,12 @@ export const saveImage = (id, url, title) => ({
   title
 });
 
+function removeNonDigitized(results) {
+  return results.filter((result) => {
+    return !result.image.alt.includes('not digitized');
+  });
+}
+
 export function fetchLocSearch(query) {
   return function(dispatch) {
 
@@ -27,7 +33,7 @@ export function fetchLocSearch(query) {
       error => console.log('An error occured', error)
     )
       .then(function(json) {
-        const infos = json.results.map((result) => {
+        const infos = removeNonDigitized(json.results).map((result) => {
           return {
             title: result.title,
             url: 'https:' + result.image.full
