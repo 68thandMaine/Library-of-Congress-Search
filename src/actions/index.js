@@ -11,6 +11,12 @@ export const searchComplete = (query, results) => ({
   results
 });
 
+export const saveImage = (url, id) => ({
+  type: types.SAVE_IMAGE,
+  url,
+  id
+});
+
 export function fetchLocSearch(query) {
   return function(dispatch) {
 

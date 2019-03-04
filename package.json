@@ -14,7 +14,6 @@
   "author": "Phil Mass",
   "license": "ISC",
   "dependencies": {
-    "nuka-carousel": "^4.4.9",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
     "react-redux": "^6.0.1",

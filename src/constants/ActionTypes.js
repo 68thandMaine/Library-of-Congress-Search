@@ -1,2 +1,3 @@
 export const SEARCH_SUBMIT = 'SEARCH_SUBMIT';
 export const SEARCH_COMPLETE = 'SEARCH_COMPLETE';
+export const SAVE_IMAGE = 'SAVE_IMAGE';
