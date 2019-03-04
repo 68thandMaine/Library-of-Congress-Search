@@ -8,6 +8,12 @@ export default (state = {}, action) => {
       query: action.query,
       results: []
     };
+    case types.SEARCH_COMPLETE:
+    return {
+      isFetching: false,
+      query: action.query,
+      results: action.results
+    };
     default:
     return state;
   }

@@ -5,7 +5,7 @@
         "node": true
     },
     "extends": [
-        "eslint:recommended", 
+        "eslint:recommended",
         "plugin:react/recommended"
     ],
     "parserOptions": {
@@ -21,10 +21,11 @@
     "rules": {
         "react/prefer-stateless-function": 2,
         "react/no-unused-state": 2,
-        "indent": [ "error", 2 ],
+        "indent": [ "warn", 2 ],
         "linebreak-style": [ "error", "unix" ],
         "quotes": [ "error", "single" ],
         "semi": [ "error", "always" ],
-        "no-console": "warn"
+        "no-console": "warn",
+        "no-undef": "warn"
     }
 }

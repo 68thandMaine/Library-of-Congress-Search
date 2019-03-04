@@ -7,6 +7,7 @@ function App() {
     <div className={styles.app}>
       <h1>Library of Congress Search</h1>
       <Search />
+      <img src='https://www.loc.gov/pictures/cdn/service/pnp/habshaer/nj/nj1000/nj1041/photos/108657pr.jpg'/>
     </div>
   );
 }

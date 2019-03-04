@@ -6,6 +6,12 @@ export const searchSubmit = (query) => ({
   query,
 });
 
+export const searchComplete = (query, results) => ({
+  type: types.SEARCH_COMPLETE,
+  query,
+  results
+});
+
 export function fetchLocSearch(query) {
   return function(dispatch) {
 
@@ -15,7 +21,11 @@ export function fetchLocSearch(query) {
       error => console.log('An error occured', error)
     )
       .then(function(json) {
-        console.log('results', json);
+        const urls = json.results.map((result) => {
+          return 'https:' + result.image.full;
+        });
+        console.log('urls', urls);
+        dispatch(searchComplete(query, urls));
       });
   };
 }
