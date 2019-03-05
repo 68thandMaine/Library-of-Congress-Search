@@ -1,32 +1,39 @@
-import * as types from '../constants/ActionTypes';
+import constants from './../constants';
+const { firebaseConfig, c } = constants;
+import Firebase from 'firebase';
+
+firebase.initializeApp(firebaseConfig);
+const pictureCollections = firebase.database().ref('picturecollections');
+
+
 
 export const searchSubmit = (query) => ({
-  type: types.SEARCH_SUBMIT,
+  type: c.SEARCH_SUBMIT,
   query,
 });
 
 export const searchComplete = (query, results) => ({
-  type: types.SEARCH_COMPLETE,
+  type: c.SEARCH_COMPLETE,
   query,
   results
 });
 
-export const saveImage = (id, thumb, title, fullImage) => ({
-  type: types.SAVE_IMAGE,
-  id,
-  thumb,
-  title,
-  fullImage
-});
+export function saveImage(id, title, fullImage) {
+return () => pictureCollections.push({
+  id: id,
+  title:title,
+  fullImage: fullImage
+  });
+};
 
 export const selectImage = (title, fullImage) => ({
-  type: types.SELECT_IMAGE,
+  type: c.SELECT_IMAGE,
   title,
   fullImage
 });
 
 export const hideModal = () => ({
-  type: types.HIDE_MODAL
+  type: c.HIDE_MODAL
 });
 
 function removeNonDigitized(results) {

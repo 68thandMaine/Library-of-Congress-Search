@@ -7,6 +7,7 @@ import v4 from 'uuid/v4';
 import { saveImage } from '../actions';
 import './ResultCarousel.css';
 
+
 const ResultCarousel = ({dispatch, resultList}) => {
     const value = (resultList ?
       (

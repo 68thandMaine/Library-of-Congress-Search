@@ -6,6 +6,8 @@ import SavedImages from './SavedImages';
 import ImageModal from './ImageModal';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
+
+
 function App() {
   return (
     <div className={styles.app}>
