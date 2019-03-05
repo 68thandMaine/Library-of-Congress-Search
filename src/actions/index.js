@@ -25,6 +25,10 @@ export const selectImage = (title, fullImage) => ({
   fullImage
 });
 
+export const hideModal = () => ({
+  type: types.HIDE_MODAL
+});
+
 function removeNonDigitized(results) {
   return results.filter((result) => {
     return !result.image.alt.includes('not digitized');

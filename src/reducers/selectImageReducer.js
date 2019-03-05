@@ -8,6 +8,12 @@ const selectImageReducer = (state = {}, action) => {
           title: action.title,
           fullImage: action.fullImage
       });
+      case types.HIDE_MODAL:
+      return Object.assign({}, {
+            shown: false,
+            title: '',
+            fullImage: ''
+        });
     default:
     return state;
   }

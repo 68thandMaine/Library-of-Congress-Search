@@ -1,20 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { hideModal } from '../actions';
 
-const ImageModal = ({imageData}) => {
+const ImageModal = ({dispatch, imageData}) => {
   console.log('image modal', imageData);
   return (
-    <div className='imageModal'>
+    (imageData.shown ?
+    <div className='imageModal' onClick={() => dispatch(hideModal())}>
       <img src={imageData.fullImage} />
       <h6>{imageData.title}</h6>
-    </div>
+    </div> : null)
   );
 };
-/*
-<img src={imageData.fullImage} />
-*/
+
 ImageModal.propTypes = {
+  dispatch: PropTypes.func,
   imageData: PropTypes.object
 };
 
