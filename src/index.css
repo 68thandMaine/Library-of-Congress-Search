@@ -18,5 +18,15 @@ body {
 }
 
 .imageContainer img {
-  height: 300px;
+  height:  150px;
+}
+
+.imageParent {
+  position: relative;
+}
+
+.imageModal {
+  position: absolute;
+  top: 0;
+  left: 0;
 }

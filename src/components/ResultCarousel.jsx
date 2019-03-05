@@ -14,9 +14,9 @@ const ResultCarousel = ({dispatch, resultList}) => {
         {resultList.map((info, index) =>
           <div key={index} onClick={e => {
               e.preventDefault();
-              dispatch(saveImage(v4(), info.url, info.title));
+              dispatch(saveImage(v4(), info.thumb, info.title, info.fullImage));
             }}>
-            <img src={info.url} />
+            <img src={info.thumb} />
             <p>{info.title}</p>
           </div>
         )}

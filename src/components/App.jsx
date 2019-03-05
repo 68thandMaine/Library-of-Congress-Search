@@ -3,6 +3,7 @@ import Search from './Search';
 import styles from './App.css';
 import Carousel from './ResultCarousel';
 import SavedImages from './SavedImages';
+import ImageModal from './ImageModal';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 function App() {
@@ -11,7 +12,10 @@ function App() {
       <h1>Library of Congress Search</h1>
       <Search />
       <Carousel />
-      <SavedImages />
+      <div className='imageParent'>
+        <SavedImages />
+        <ImageModal />
+      </div>
     </div>
   );
 }

@@ -11,11 +11,18 @@ export const searchComplete = (query, results) => ({
   results
 });
 
-export const saveImage = (id, url, title) => ({
+export const saveImage = (id, thumb, title, fullImage) => ({
   type: types.SAVE_IMAGE,
   id,
-  url,
-  title
+  thumb,
+  title,
+  fullImage
+});
+
+export const selectImage = (title, fullImage) => ({
+  type: types.SELECT_IMAGE,
+  title,
+  fullImage
 });
 
 function removeNonDigitized(results) {
@@ -36,7 +43,8 @@ export function fetchLocSearch(query) {
         const infos = removeNonDigitized(json.results).map((result) => {
           return {
             title: result.title,
-            url: 'https:' + result.image.full
+            thumb: 'https:' + result.image.thumb,
+            fullImage: 'https:' + result.image.full
           };
         });
         dispatch(searchComplete(query, infos));
