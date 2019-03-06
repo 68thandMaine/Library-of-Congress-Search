@@ -12,15 +12,24 @@ export function saveImage(id, title, fullImage) {
     fullImage: fullImage
   });
 }
+function receivePicture(pictureFromFirebase) {
+  return {
+    type: c.RECEIVE_PICTURE,
+    picture: pictureFromFirebase
+  }
+}
 
 export function watchFirebasePictureCollectionRef() {
+
   return function(dispatch) {
     pictureCollections.on('child_added', data=> {
-      console.log(data.val());
+      const newPicture = Object.assign({}, data.val(), {
+        id: data.getKey(),
+      });
+      dispatch(receivePicture(newPicture));
     });
   };
 }
-
 
 export const searchSubmit = (query) => ({
   type: c.SEARCH_SUBMIT,

@@ -12,6 +12,7 @@ import { connect } from 'react-redux';
 class App extends React.Component {
 
   UNSAFE_componentWillMount() {
+    console.log('UNSAFE_componentWillMount hit');
     const { dispatch } = this.props;
     const { watchFirebasePictureCollectionRef } = actions;
     dispatch(watchFirebasePictureCollectionRef());
