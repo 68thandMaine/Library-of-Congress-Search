@@ -11,31 +11,31 @@ import { connect } from 'react-redux';
 
 class App extends React.Component {
 
-  UNSAFE_componentWillMount() {
-    console.log('UNSAFE_componentWillMount hit');
-    const { dispatch } = this.props;
-    const { watchFirebasePictureCollectionRef } = actions;
-    dispatch(watchFirebasePictureCollectionRef());
-  }
+    UNSAFE_componentWillMount() {
+        console.log('UNSAFE_componentWillMount hit');
+        const { dispatch } = this.props;
+        const { watchFirebasePictureCollectionRef } = actions;
+        dispatch(watchFirebasePictureCollectionRef());
+    }
 
-  render() {
-    return (
-      <div className={styles.app}>
-        <h1>Library of Congress Search</h1>
-        <Search />
-        <Carousel />
-        <div className='imageParent'>
-          <SavedImages />
-          <ImageModal />
-        </div>
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div className={styles.app}>
+                <h1>Library of Congress Search</h1>
+                <Search />
+                <Carousel />
+                <div className='imageParent'>
+                    <SavedImages />
+                    <ImageModal />
+                </div>
+            </div>
+        );
+    }
 
 }
 
 App.propTypes = {
-  dispatch: PropTypes.func
+    dispatch: PropTypes.func
 };
 
 export default connect()(App);

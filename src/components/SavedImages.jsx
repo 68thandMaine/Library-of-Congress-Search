@@ -4,27 +4,30 @@ import PropTypes from 'prop-types';
 import { selectImage } from '../actions';
 
 const SavedImages = ({dispatch, images}) => {
-  console.log('props', Object.keys(images));
-  return (
-    <div className='savedImageContainer'>
-      {Object.keys(images).map((id) =>
-        <div className='imageContainer' key={id} onClick={()=>dispatch(selectImage(images[id].title, images[id].fullImage))}>
-          <img src={images[id].thumb} />
+  console.log('///////////////////////////');
+  console.log('savedImages Props: ', Object.keys(images));
+  console.log('                      ');
+  console.log('///////////////////////////');
+    return (
+        <div className='savedImageContainer'>
+            {Object.keys(images).map((id) =>
+                <div className='imageContainer' key={id} onClick={()=>dispatch(selectImage(images[id].title, images[id].fullImage))}>
+                    <img src={images[id].thumb} />
+                </div>
+            )}
         </div>
-      )}
-    </div>
-  );
+    );
 };
 
 SavedImages.propTypes = {
-  images: PropTypes.object,
-  dispatch: PropTypes.func
+    images: PropTypes.object,
+    dispatch: PropTypes.func
 };
 
 const mapStateToProps = state => {
-  return {
-    images: state.saveImage
-  };
+    return {
+        images: state.saveImage
+    };
 };
 
 export default connect(mapStateToProps)(SavedImages);

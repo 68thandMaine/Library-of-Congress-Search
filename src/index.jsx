@@ -11,13 +11,13 @@ import rootReducer from './reducers';
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 store.subscribe(() => {
-  console.log('state', store.getState());
+    console.log('state', store.getState());
 });
 
 
 ReactDOM.render(
-  <Provider store ={store}>
-    <App/>
-  </Provider>,
-  document.getElementById('app')
+    <Provider store ={store}>
+        <App/>
+    </Provider>,
+    document.getElementById('app')
 );

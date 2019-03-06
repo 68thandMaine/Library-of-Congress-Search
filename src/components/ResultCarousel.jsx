@@ -10,32 +10,32 @@ import './ResultCarousel.css';
 
 const ResultCarousel = ({dispatch, resultList}) => {
     const value = (resultList ?
-      (
-        <Carousel autoPlay={true}>
-        {resultList.map((info, index) =>
-          <div key={index} onClick={e => {
-              e.preventDefault();
-              dispatch(saveImage(v4(), info.thumb, info.title, info.fullImage));
-            }}>
-            <img src={info.thumb} />
-            <p>{info.title}</p>
-          </div>
-        )}
-      </Carousel>
-    ) : null);
-      return value;
+        (
+            <Carousel autoPlay={true}>
+                {resultList.map((info, index) =>
+                    <div key={index} onClick={e => {
+                        e.preventDefault();
+                        dispatch(saveImage(v4(), info.thumb, info.title, info.fullImage));
+                    }}>
+                        <img src={info.thumb} />
+                        <p>{info.title}</p>
+                    </div>
+                )}
+            </Carousel>
+        ) : null);
+    return value;
 };
 
 
 ResultCarousel.propTypes = {
-  resultList: PropTypes.array,
-  dispatch: PropTypes.func
+    resultList: PropTypes.array,
+    dispatch: PropTypes.func
 };
 
 const mapStateToProps = state => {
-  return {
-    resultList: state.locSearch.results,
-  };
+    return {
+        resultList: state.locSearch.results,
+    };
 };
 
 export default connect(mapStateToProps)(ResultCarousel);
