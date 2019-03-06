@@ -3,11 +3,14 @@ import * as types from '../constants/ActionTypes';
 const imageSaveReducer = (state = {}, action) => {
     switch(action.type) {
     case types.RECEIVE_PICTURE:
-    // console.log("Receive_Picture state: ", state)
+    console.log("Receive_Picture action: ", action);
+    console.log("-----------------------");
+    console.log('             ');
         return Object.assign({}, state, {
-            [action.id]: {
-                title: action.title,
-                fullImage: action.fullImage
+            [action.picture.id]: {
+                title: action.picture.title,
+                thumb: action.picture.thumb,
+                fullImage: action.picture.fullImage
             }
         });
 

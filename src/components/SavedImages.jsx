@@ -11,7 +11,7 @@ const SavedImages = ({dispatch, images}) => {
     return (
         <div className='savedImageContainer'>
             {Object.keys(images).map((id) =>
-                <div className='imageContainer' key={id} onClick={()=>dispatch(selectImage(images[id].title, images[id].fullImage))}>
+                <div className='imageContainer' key={id} onClick={()=>console.log('clicked')}>
                     <img src={images[id].thumb} />
                 </div>
             )}
@@ -19,6 +19,7 @@ const SavedImages = ({dispatch, images}) => {
     );
 };
 
+// dispatch(selectImage(images[id].title, images[id].fullImage))
 SavedImages.propTypes = {
     images: PropTypes.object,
     dispatch: PropTypes.func
