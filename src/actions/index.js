@@ -3,8 +3,23 @@ const { firebaseConfig, c } = constants;
 import Firebase from 'firebase';
 
 firebase.initializeApp(firebaseConfig);
-const pictureCollections = firebase.database().ref('picturecollections');
+const pictureCollections = firebase.database().ref('pictureCollections');
 
+export function saveImage(id, title, fullImage) {
+  return () => pictureCollections.push({
+    id: id,
+    title:title,
+    fullImage: fullImage
+  });
+}
+
+export function watchFirebasePictureCollectionRef() {
+  return function(dispatch) {
+    pictureCollections.on('child_added', data=> {
+      console.log(data.val());
+    });
+  };
+}
 
 
 export const searchSubmit = (query) => ({
@@ -18,13 +33,6 @@ export const searchComplete = (query, results) => ({
   results
 });
 
-export function saveImage(id, title, fullImage) {
-return () => pictureCollections.push({
-  id: id,
-  title:title,
-  fullImage: fullImage
-  });
-};
 
 export const selectImage = (title, fullImage) => ({
   type: c.SELECT_IMAGE,
